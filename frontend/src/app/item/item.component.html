@@ -1,8 +1,11 @@
-<div class="list-group-item flex-column align-items-start">
+<div class="list-group-item flex-column align-items-start" [ngClass]="{'list-group-item-success': item_unit.vacant === true, 'list-group-item-warning': item_unit.vacant === false}">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">Unit No: {{item_unit.number}}</h5>
-      <small>EPM</small>
+      <small>Floor: {{item_unit.floor}}</small>
     </div>
-    <p class="mb-1">Fee: {{item_unit.rent}}</p>
-    <small>Floor: {{item_unit.floor}}</small>
+    <p class="mb-1">Fee: $CAD {{item_unit.rent}}</p>
+    <small> Vacancy: {{item_unit.status}}</small>
+    <div>
+        <button class="btn btn-primary" (click)="onAssign()">Change Status</button>
+    </div>
   </div>

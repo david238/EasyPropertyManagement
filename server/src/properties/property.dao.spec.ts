@@ -60,7 +60,7 @@ function addUnits(property: Property, floors: number, unitsPerFloor: number) {
         number: doorNo,
         floor: floor,
         rent: _.random(850, 2550, false)
-      } as Unit)
+        } as Unit)
     }
   }
 }

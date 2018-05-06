@@ -9,9 +9,23 @@ export class ItemComponent implements OnInit {
 
 @Input() item_unit;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  //assign !true/false on vacant unit property
+  onAssign() {
+    this.item_unit.vacant = !this.item_unit.vacant;
+    if (this.item_unit.vacant)
+    {
+      this.item_unit.status = "Available";
+    }
+    else
+    {
+      this.item_unit.status = "Occupied";
+    }
   }
 
 }
