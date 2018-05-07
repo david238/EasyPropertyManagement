@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-
+import { random } from 'lodash';
 import { APIConfig } from '../api.config';
 
 const PROPERTIES_PATH = `${APIConfig.BASE_API_PATH}/api/properties`;
@@ -53,4 +53,8 @@ export class PropertyService {
     return this.properties;
   }
 
+  addProperty(name, address) {
+    const newProp: Property = {_id: <string><any> random(1, 6), name: name, address: address, units: []};
+    this.properties.push(newProp);
+  }
 }

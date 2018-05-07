@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropertyService } from '../api/client/properties/property.service';
 
 @Component({
   selector: 'app-create-property',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePropertyComponent implements OnInit {
 
-  constructor() { }
+  prService: PropertyService;
+
+  constructor(prService_param: PropertyService) {
+    this.prService = prService_param;
+   }
 
   ngOnInit() {
   }
 
   onSubmit(submittedForm) {
     console.log(submittedForm.value);
+    this.prService.addProperty(submittedForm.value.name, submittedForm.value.address);
   }
 }
