@@ -24,4 +24,9 @@ export class CreatePropertyComponent implements OnInit {
     console.log(submittedForm);
     this.prService.addProperty(submittedForm.value.name, submittedForm.value.address);
   }
+
+  getProperties() {
+    return this.prService.getProperties();
+  }
+
 }

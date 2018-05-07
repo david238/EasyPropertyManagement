@@ -1,9 +1,2 @@
-<div>
-    <ul class="nav nav-tabs">
-        <li class="nav-item" *ngFor="let prop of properties">
-            <a class="nav-link" [ngClass]="{active: chosenProperty_id === prop._id}" (click)="onChoose(prop._id)" style="cursor:pointer">{{ prop.name }}</a>
-        </li>
-      </ul>
-</div>
-<app-list [units]="getUnits()"></app-list>
+<app-list [properties]="getProperties()" ></app-list>
 

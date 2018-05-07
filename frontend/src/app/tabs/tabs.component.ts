@@ -9,31 +9,22 @@ import { Property, Unit, PropertyService } from '../api/client/properties/proper
 })
 export class TabsComponent implements OnInit {
 
-  @Input() properties: Property[];
-  chosenProperty_id = '';
+  properties: Property[]; // @Input() properties: Property[]
+  prService: PropertyService;
 
   // populate units array with selected property
   units: Unit[];
 
-  constructor() {
+  constructor(prService_param: PropertyService) {
+    this.prService = prService_param;
    }
 
   ngOnInit() {
   }
 
-  onChoose(prop_id) {
-    this.chosenProperty_id = prop_id;
-    // console.log('Chosen Property is:' + this.chosenProperty_id);
-  }
-
-  getUnits() {
-    this.properties.filter((property) => {
-      if (property._id === this.chosenProperty_id) {
-        this.units = property.units;
-      }
-
-    });
-    return this.units;
+  getProperties() {
+    this.properties = this.prService.getProperties();
+    return this.properties;
   }
 
 }

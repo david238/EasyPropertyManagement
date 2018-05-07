@@ -28,7 +28,7 @@ export class PropertyService {
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) {this.loadProperties();}
 
   public queryProperties(
     query: any = {},

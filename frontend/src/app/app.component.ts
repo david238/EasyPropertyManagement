@@ -21,13 +21,13 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.prService.loadProperties();
+    // this.prService.loadProperties();
   }
 
-  getProperties() {
-    this.properties = this.prService.getProperties();
-    return this.properties;
-  }
+  // getProperties() {
+  //   this.properties = this.prService.getProperties();
+  //   return this.properties;
+  // }
 
 
 }

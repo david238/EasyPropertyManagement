@@ -19,10 +19,9 @@ export class CreateUnitsComponent implements OnInit {
 
   constructor(prService_param: PropertyService) {
     this.prService = prService_param;
-   }
+  }
 
   ngOnInit() {
-
   }
 
   onSubmit(submittedForm) {
@@ -35,5 +34,6 @@ export class CreateUnitsComponent implements OnInit {
     };
     this.prService.addUnitToProperty(submittedForm.value.prop_id, this.newUnit);
   }
+
 
 }

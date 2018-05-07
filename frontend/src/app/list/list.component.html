@@ -1,3 +1,12 @@
+<div>
+    <ul class="nav nav-tabs">
+        <li class="nav-item" *ngFor="let prop of properties">
+            <a class="nav-link" [ngClass]="{active: chosenProperty_id === prop._id}" (click)="onChoose(prop._id)" style="cursor:pointer">{{ prop.name }}</a>
+        </li>
+      </ul>
+</div>
 <div class="list-group">
   <app-item *ngFor="let unit of units" [item_unit]="unit"></app-item>
 </div>
+
+

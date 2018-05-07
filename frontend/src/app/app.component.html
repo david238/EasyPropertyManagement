@@ -8,12 +8,17 @@
       </div>
   </div>
   <div class="row">
-      <div class="col-xs-12 col-sm-6 col-lg-6">
-        <app-create-property></app-create-property>
+      <div class="col-xs-12 col-sm-12 col-lg-12">
+        <app-header></app-header>
       </div>
   </div>
   <hr>
   <div class="row">
+      <div class="col-xs-12 col-sm-12 col-lg-12">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+  <!-- <div class="row">
       <div class="col-xs-12 col-sm-6 col-lg-6">
         <app-create-units [properties]="getProperties()"></app-create-units>
       </div>
@@ -22,7 +27,7 @@
   <div class="row">
     <p>Choose one of our Properties: </p>
     <div class="col-xs-12 col-sm-12 col-lg-12">
-        <app-tabs [properties]="getProperties()"></app-tabs>
+      <app-tabs [properties]="getProperties()"></app-tabs>
     </div>
   </div>
-</div>
+</div> -->
