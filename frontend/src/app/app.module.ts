@@ -9,6 +9,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ListComponent } from './list/list.component';
 import { ItemComponent } from './item/item.component';
 import { CreatePropertyComponent } from './create-property/create-property.component';
+import { CreateUnitsComponent } from './create-units/create-units.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { CreatePropertyComponent } from './create-property/create-property.compo
     TabsComponent,
     ListComponent,
     ItemComponent,
-    CreatePropertyComponent
+    CreatePropertyComponent,
+    CreateUnitsComponent
   ],
   imports: [
     BrowserModule,

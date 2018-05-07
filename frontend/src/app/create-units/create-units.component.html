@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmit(createunitform)" #createunitform="ngForm">
+    <div class="form-froup">
+      <label for="name">Property Name</label>
+      <select type="text" id="prop_id" name="prop_id" class="form-control" ngModel>
+        <option *ngFor="let prop of properties" [value]="prop._id">
+          {{prop.name}}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">Unit Number</label>
+      <input type="text" id="unitnumber" name="unitnumber" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="address">Unit Floor</label>
+      <input type="text" id="unitfloor" name="unitfloor" class="form-control" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="address">Unit Rental Fee</label>
+        <input type="text" id="unitrent" name="unitrent" class="form-control" ngModel>
+      </div>
+      <div class="form-group">
+          <label for="address">Unit Vacancy</label>
+          <select type="text" id="unitvacancy" name="unitvacancy" class="form-control" ngModel>
+            <option *ngFor="let option of vacancyArray" [value]="option.value">
+              {{option.display}}
+            </option>
+          </select>
+      </div>
+    <button class="btn btn-primary" type="submit">Add Unit</button>
+  </form>
+
+
