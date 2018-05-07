@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 
-import { Property, Unit } from '../api/client/properties/property.service';
+import { Property, Unit, PropertyService } from '../api/client/properties/property.service';
 
 @Component({
   selector: 'app-tabs',
@@ -15,7 +15,8 @@ export class TabsComponent implements OnInit {
   // populate units array with selected property
   units: Unit[];
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }
@@ -26,11 +27,6 @@ export class TabsComponent implements OnInit {
   }
 
   getUnits() {
-    // if (this.chosenProperty_id === '')
-    // {
-    //   // return copy of property always if chosen property is empty
-    //   return this.properties.slice();
-    // }
     this.properties.filter((property) => {
       if (property._id === this.chosenProperty_id) {
         this.units = property.units;
@@ -39,6 +35,5 @@ export class TabsComponent implements OnInit {
     });
     return this.units;
   }
-
 
 }

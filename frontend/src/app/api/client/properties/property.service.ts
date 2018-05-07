@@ -24,9 +24,11 @@ export interface Property {
 @Injectable()
 export class PropertyService {
 
+  private properties: Property[] = [];
+
   constructor(
     private http: HttpClient
-  ) { }
+  ) {}
 
   public queryProperties(
     query: any = {},
@@ -39,4 +41,16 @@ export class PropertyService {
       }
     });
   }
+
+  loadProperties() {
+    this.queryProperties()
+      .subscribe(properties => {
+        this.properties = properties;
+      });
+  }
+
+  getProperties() {
+    return this.properties;
+  }
+
 }

@@ -7,23 +7,27 @@ import { Property, PropertyService } from './api/client/properties/property.serv
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit {
   title = 'Easy Property Management';
 
-  properties: Property[] = [];
+  properties: Property[];
+  prService: PropertyService;
 
-  constructor(
-    private propertyService: PropertyService
-  ) { }
+  constructor(private propertyService: PropertyService) {
+    this.prService = propertyService;
+  }
+
 
   ngOnInit(): void {
-    this.loadProperties();
+    this.prService.loadProperties();
   }
 
-  loadProperties() {
-    this.propertyService.queryProperties()
-      .subscribe(properties => {
-        this.properties = properties;
-      });
+  getProperties() {
+    this.properties = this.prService.getProperties();
+    return this.properties;
   }
+
+
 }

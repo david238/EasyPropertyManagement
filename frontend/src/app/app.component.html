@@ -1,15 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
   <div class="row">
+      <div style="text-align:center; padding: 20px;">
+          <h3>
+          Welcome to {{ title }}!
+        </h3>
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-lg-6">
+        <app-create-property></app-create-property>
+      </div>
+  </div>
+  <hr>
+  <div class="row">
+    <p>Choose one of our Properties: </p>
     <div class="col-xs-12 col-sm-12 col-lg-12">
-        <div style="text-align:center">
-            <h3>
-            Welcome to {{ title }}!
-          </h3>
-        </div>
-        <p>Choose one of our Properties: </p>
-        <app-tabs [properties]="properties"></app-tabs>
-
-        </div>
+        <app-tabs [properties]="getProperties()"></app-tabs>
+    </div>
   </div>
 </div>
