@@ -1,0 +1,15 @@
+<form class="space" (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <div class="form-group">
+        <input type="text" id="firstName" name="firstName" class="form-control" placeholder="First Name" ngModel>
+    </div>
+    <div class="form-group">
+        <input type="text" id="lastName" name="lastname" class="form-control" placeholder="Last Name" ngModel>
+    </div>
+    <div class="form-group">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email" ngModel required>
+    </div>
+    <div class="form-group">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Password" ngModel required>
+    </div>
+    <button class="btn btn-primary" type="submit"  [disabled]="myForm.invalid">Submit</button>
+</form>

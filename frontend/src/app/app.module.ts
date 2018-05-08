@@ -13,12 +13,16 @@ import { CreatePropertyComponent } from './create-property/create-property.compo
 import { CreateUnitsComponent } from './create-units/create-units.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AUTH_ROUTES } from './authentication/auth-routes';
 
 const routes = [
   { path: '', redirectTo: '/authentication', pathMatch: 'full'},
   { path: 'properties', component: TabsComponent},
   { path: 'new-property', component: CreatePropertyComponent},
-  { path: 'authentication', component: AuthenticationComponent},
+  { path: 'authentication', component: AuthenticationComponent, children: AUTH_ROUTES},
   { path: '**', redirectTo: '/authentication'}
 ];
 
@@ -31,7 +35,10 @@ const routes = [
     CreatePropertyComponent,
     CreateUnitsComponent,
     HeaderComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    SignupComponent,
+    SigninComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
