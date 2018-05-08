@@ -68,24 +68,15 @@ export class PropertyService {
     this.insertProperty(name, address).subscribe(
       gen_id => {
         this.genID =  gen_id;
-        //console.log('genennee: ' + this.genID);
       });
-    // const gen_id = <string><any> random(1, 10000) + 'EPM'; //Added EPM just to set it as string for comparison === to work
     const newProp: Property = {_id: this.genID , name: name, address: address, units: []};
     this.properties.push(newProp);
   }
 
   addUnitToProperty(prop_id, newUnit) {
-    // console.log('insideaddunit: ' + prop_id + newUnit.floor + newUnit.vacant + newUnit.rent + newUnit.number);
     const pos = this.properties.findIndex((property) => {
-        // console.log('property_id: ' + property._id + ' prop_id: ' + prop_id);
         return property._id === prop_id;
     });
-
-     console.log('position index:  ' + pos + ' obj: ' + this.properties[pos]);
-
     this.properties[pos].units.push(newUnit);
-    // pos[0].units.push(newUnit);
-    // pos.units.push(newUnit);
   }
 }
