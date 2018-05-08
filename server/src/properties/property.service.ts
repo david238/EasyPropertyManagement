@@ -15,4 +15,10 @@ export class PropertyService {
     return this.dao.query(query, offset, limit);
   }
 
+  public insertProperty(
+    property: Property
+  ): Promise<string> {
+    return this.dao.insert(property);
+  }
+
 }

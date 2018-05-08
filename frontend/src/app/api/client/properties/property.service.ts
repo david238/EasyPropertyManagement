@@ -25,21 +25,32 @@ export interface Property {
 export class PropertyService {
 
   private properties: Property[] = [];
+  private genID = '';
 
   constructor(
     private http: HttpClient
-  ) {this.loadProperties();}
+  ) {this.loadProperties();
+  }
 
   public queryProperties(
     query: any = {},
     params: { limit: number; offset: number } = { limit: 10, offset: 0 }
   ): Observable<Property[]> {
-    return this.http.post<Property[]>(PROPERTIES_PATH, query, {
+    return this.http.get<Property[]>(PROPERTIES_PATH, {
       params: {
         limit: `${params.limit}`,
         offset: `${params.offset}`
       }
     });
+  }
+
+  public insertProperty(name, address) {
+    const newProperty: Property = {name: name , address: address, units: []};
+    console.log(newProperty);
+    console.log(JSON.stringify(newProperty));
+    console.log('inside insert property ' + newProperty.name);
+    return this.http.post(PROPERTIES_PATH, newProperty, {responseType: 'text'});
+
   }
 
   loadProperties() {
@@ -54,10 +65,14 @@ export class PropertyService {
   }
 
   addProperty(name, address) {
-    const gen_id = <string><any> random(1, 10000) + 'EPM'; //Added EPM just to set it as string for comparison === to work
-    const newProp: Property = {_id: gen_id , name: name, address: address, units: []};
+    this.insertProperty(name, address).subscribe(
+      gen_id => {
+        this.genID =  gen_id;
+        //console.log('genennee: ' + this.genID);
+      });
+    // const gen_id = <string><any> random(1, 10000) + 'EPM'; //Added EPM just to set it as string for comparison === to work
+    const newProp: Property = {_id: this.genID , name: name, address: address, units: []};
     this.properties.push(newProp);
-    console.log('gen_id: ' + gen_id);
   }
 
   addUnitToProperty(prop_id, newUnit) {

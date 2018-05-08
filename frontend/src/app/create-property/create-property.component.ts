@@ -21,7 +21,7 @@ export class CreatePropertyComponent implements OnInit {
     if (submittedForm.invalid) {
       return;
     }
-    console.log(submittedForm);
+    // console.log(submittedForm);
     this.prService.addProperty(submittedForm.value.name, submittedForm.value.address);
   }
 
