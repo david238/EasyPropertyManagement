@@ -12,11 +12,14 @@ import { ItemComponent } from './item/item.component';
 import { CreatePropertyComponent } from './create-property/create-property.component';
 import { CreateUnitsComponent } from './create-units/create-units.component';
 import { HeaderComponent } from './header/header.component';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 const routes = [
-  { path: '', component: TabsComponent},
+  { path: '', redirectTo: '/authentication', pathMatch: 'full'},
+  { path: 'properties', component: TabsComponent},
   { path: 'new-property', component: CreatePropertyComponent},
-  { path: '**', redirectTo: '/'}
+  { path: 'authentication', component: AuthenticationComponent},
+  { path: '**', redirectTo: '/authentication'}
 ];
 
 @NgModule({
@@ -27,7 +30,8 @@ const routes = [
     ItemComponent,
     CreatePropertyComponent,
     CreateUnitsComponent,
-    HeaderComponent
+    HeaderComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,
