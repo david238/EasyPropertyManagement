@@ -20,7 +20,7 @@ controller.post('/signup', async (req, res) => {
 
 controller.post('/signin', async (req, res) => {
   const query = req.body;
-  const selectedUser = await userService.getUser(query);
+  const selectedUser = await userService.getUserToken(query);
   res.send(selectedUser);
 });
 

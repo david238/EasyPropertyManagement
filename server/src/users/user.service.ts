@@ -27,6 +27,13 @@ export class UserService {
     return this.dao.getUser(selectedUser);
   }
 
+  public getUserToken(
+    selectedUser: User
+  ): Promise<string> {
+    return this.dao.getUserToken(selectedUser);
+  } 
+  
+
 
 
 }

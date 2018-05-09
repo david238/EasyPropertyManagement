@@ -25,6 +25,14 @@ export class UserDAO {
     if (!bcrypt.compareSync(user_param.password, userfound.password)) {
         return 'error';
     }
+    return 'good';
+  }
+
+  public async getUserToken(user_param: User): Promise<string>  {
+    const userfound = await this.propertyCollection().findById(user_param._id);
+    if (!bcrypt.compareSync(user_param.password, userfound.password)) {
+        return 'error' ;
+    }
     var token = jwt.sign({user: userfound}, 'secret', {expiresIn:7200});
     return token;
   }

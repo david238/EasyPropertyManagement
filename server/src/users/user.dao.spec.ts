@@ -2,6 +2,8 @@ import 'jasmine';
 
 import { UserDAO } from './user.dao';
 import { User } from './user.model';
+import * as jwt from "jsonwebtoken";
+
 
 describe('User Module', () => {
 
@@ -27,7 +29,6 @@ describe('User Module', () => {
     let new_id = props[0]._id;
 
     expect(props.length).toBe(1);
-
 
     const emerald2 = {
       _id: new_id,
