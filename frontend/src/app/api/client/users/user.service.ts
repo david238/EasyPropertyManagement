@@ -59,8 +59,9 @@ export class UserService {
     this.insertUser(fn, ln, em, pwd).subscribe(
       gen_id => {
         this.user_id =  gen_id;
-      });
-  }
+        this.router.navigate(['/authentication', 'signin']);
+     });
+    }
 
   public insertUser(fn, ln, em, pwd) {
     const newUser: User = {firstname: fn , lastname: ln, email: em, password: pwd};
@@ -76,8 +77,7 @@ export class UserService {
       user => {
         this.userRet =  user;
         console.log(this.userRet);
-        if (this.userRet !== 'error')
-        {
+        if (this.userRet !== 'error') {
           localStorage.setItem('token', this.userRet);
           localStorage.setItem('email', em);
           localStorage.setItem('userId', this.selectedUser_id);
