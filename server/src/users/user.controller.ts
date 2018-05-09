@@ -12,10 +12,16 @@ controller.get('/', async (req, res) => {
   res.send(properties);
 });
 
-controller.post('/', async (req, res) => {
+controller.post('/signup', async (req, res) => {
   const query = req.body;
   const generatedID = await userService.insertUser(query);
   res.send(generatedID);
+});
+
+controller.post('/signin', async (req, res) => {
+  const query = req.body;
+  const selectedUser = await userService.getUser(query);
+  res.send(selectedUser);
 });
 
 export { controller as UserController };

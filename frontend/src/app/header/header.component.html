@@ -1,12 +1,12 @@
 <ul class="nav nav-pills">
 
-  <li class="nav-item">
+  <li class="nav-item" *ngIf="isLoggedIn()">
       <a class="nav-link" routerLinkActive="active" routerLink="/properties">Properties List</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item" *ngIf="isLoggedIn()">
       <a class="nav-link" routerLinkActive="active" routerLink="/new-property">New Property</a>
     </li>
-    <li class="nav-item" >
+    <li class="nav-item">
         <a class="nav-link" routerLinkActive="active" routerLink="/authentication">Authentication</a>
       </li>
   </ul>

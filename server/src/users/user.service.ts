@@ -21,4 +21,12 @@ export class UserService {
     return this.dao.insert(newuser);
   }
 
+  public getUser(
+    selectedUser: User
+  ): Promise<string> {
+    return this.dao.getUser(selectedUser);
+  }
+
+
+
 }

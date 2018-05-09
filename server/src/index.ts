@@ -4,11 +4,7 @@ import * as express from 'express';
 import { PropertyController } from './properties/property.controller';
 import { UserController } from './users/user.controller';
 
-import mongoose = require('mongoose');
-
 const app = express();
-//mongoose database connection on localhost
-mongoose.connect('mongodb://localhost:27017/node-angular');
 
 app.use(cors());
 app.use(express.json());
