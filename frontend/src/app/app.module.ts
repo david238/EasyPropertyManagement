@@ -19,7 +19,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AUTH_ROUTES } from './authentication/auth-routes';
 
 const routes = [
-  { path: '', redirectTo: '/authentication', pathMatch: 'full'},
+  { path: '', redirectTo: '/authentication/signin', pathMatch: 'full'},
   { path: 'properties', component: TabsComponent},
   { path: 'new-property', component: CreatePropertyComponent},
   { path: 'authentication', component: AuthenticationComponent, children: AUTH_ROUTES},
